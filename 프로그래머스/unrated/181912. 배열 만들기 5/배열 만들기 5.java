@@ -7,7 +7,7 @@ class Solution {
 		if(k < Integer.parseInt(intStrs[i].substring(s,s+l)))
 			list.add(Integer.parseInt(intStrs[i].substring(s,s+l)));
 	}
-	int[] answer = list.stream().mapToInt(Integer::valueOf).toArray();
-        return answer;
+	
+        return list.stream().mapToInt(Integer::valueOf).toArray();
     }
 }
