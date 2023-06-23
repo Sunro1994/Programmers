@@ -2,14 +2,21 @@ import java.util.*;
 import java.util.stream.*;
 class Solution {
     public int solution(int[] nums) {
-        int answer = 0;
-        int length = nums.length/2;    
-        
-      IntStream stream = Arrays.stream(nums);
-	nums = stream.distinct().sorted().toArray();  
-    if (nums.length==1) return 1;
-    if (nums.length>length) return length;
-    answer = nums.length;
+        int length = nums.length/2;
+        int answer =0;
+	
+	
+	
+	Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+	
+	for(int i=0; i<nums.length;i++) {
+		map.put(nums[i], map.getOrDefault(nums[i], 0)+1);
+	}
+	
+	
+	if(map.keySet().size()>length) answer = length;
+	else answer = map.keySet().size();
+	if(map.keySet().size()==1) answer =1;
     
         
         return answer;
