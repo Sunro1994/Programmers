@@ -1,4 +1,3 @@
-
 -- SELECT T1.TITLE                               AS TITLE 
 --      , T1.BOARD_ID                            AS BOARD_ID
 --      , T2.REPLY_ID                            AS REPLY_ID
@@ -27,5 +26,3 @@ TO_CHAR(B.CREATED_DATE,'YYYY-MM-DD') AS CREATED_DATE
 WHERE A.CREATED_DATE >= TO_DATE('2022-10-01', 'YYYY-MM-DD')
    AND A.CREATED_DATE <= TO_DATE('2022-10-31', 'YYYY-MM-DD')
 ORDER BY B.CREATED_DATE ASC , A.TITLE ASC;
-
-
