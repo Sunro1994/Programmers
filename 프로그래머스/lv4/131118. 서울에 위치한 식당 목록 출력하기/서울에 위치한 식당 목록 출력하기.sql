@@ -1,0 +1,26 @@
+-- 코드를 입력하세요
+-- 1. 서울에 위치한
+-- 2. 리뷰평균점수는 세번째 자리에서 반올림
+-- 3. 평균점수를 기준으로 내림차순 정렬
+-- 4. 평균점수가 같다면 즐겨찾기 수를 기준으로 내림차순
+SELECT 
+A.REST_ID, 
+A.REST_NAME, 
+A.FOOD_TYPE, 
+A.FAVORITES, 
+A.ADDRESS, B.SCORE
+FROM
+(
+SELECT *
+FROM REST_INFO
+WHERE ADDRESS LIKE '서울%'
+) A
+JOIN 
+(
+SELECT REST_ID ,ROUND(AVG(REVIEW_SCORE),2) AS SCORE
+FROM REST_REVIEW 
+WHERE REST_ID IS NOT NULL
+GROUP BY REST_ID
+) B
+ON A.REST_ID = B.REST_ID
+ORDER BY B.SCORE DESC, FAVORITES DESC
