@@ -1,25 +1,35 @@
-import java.util.ArrayList;
+import java.util.*;
 class Solution {
     public int[] solution(int[] arr, int[] query) {
-        ArrayList<Integer> list = new ArrayList<Integer>();
-	for(int i: arr) list.add(i);	
+       LinkedList<Integer> list = new LinkedList<Integer>();
+	for(int i:arr) list.add(i);
+	
 	for(int i=0; i<query.length;i++) {
 		if(i%2==0) {
-			int start = query[i]+1;
-			int cnt = list.size()-start;
-			for(int j=start; cnt!=0;cnt--) {
-				list.remove(j);
-			}	
-					}
-		else {
-			int end = query[i];
-			int cnt = end;
-			for(int x=0; cnt!=0;cnt--) list.remove(x);
-			}//else
-		}//for
-	
-	
-	int[] answer = list.stream().mapToInt(Integer::intValue).toArray();
+			int index = query[i]+1;
+			int len = list.size();
+			
+			for(int even=index; even<len;even++) {
+				list.pollLast();
+			}
+		}
+		if(i%2!=0) {
+			int index2 = query[i];
+			for(int odd=0; odd<index2; odd++) {
+				list.pollFirst();
+			}
+		}
+
+	}
+	int[] answer = new int[(list.size())];
+	for(int i=0; i<answer.length;i++) {
+		answer[i] = list.get(i);
+	}
+        
+        
+        
+        
+        
         
         return answer;
     }
