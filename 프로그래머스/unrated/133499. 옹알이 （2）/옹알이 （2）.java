@@ -5,13 +5,13 @@ class Solution {
 		if(babbling[i].contains("ayaaya"+"") || babbling[i].contains("yeye"+"")|| babbling[i].contains("woowoo"+"")||babbling[i].contains("mama"+"")) {
 			continue;
 		}
-		for(int j=0; j<50;j++) {
+		
 			
-		babbling[i]= 	babbling[i].replaceFirst("aya", " ");
-		babbling[i]= 	babbling[i].replaceFirst("ye", " ");
-		babbling[i]= 	babbling[i].replaceFirst("woo", " ");
-		babbling[i]= 	babbling[i].replaceFirst("ma", " ");
-		}
+		babbling[i]= 	babbling[i].replace("aya", " ");
+		babbling[i]= 	babbling[i].replace("ye", " ");
+		babbling[i]= 	babbling[i].replace("woo", " ");
+		babbling[i]= 	babbling[i].replace("ma", " ");
+		
 	}
 	for(int i=0; i<babbling.length;i++) {
 		babbling[i] = babbling[i].replaceAll(" ", "");
