@@ -13,15 +13,10 @@ class Solution {
 		String looser = completion[i];
 		map.put(looser, map.get(looser)-1);
 	}
-	
-	ArrayList<String> list = new ArrayList<String>();
-	
-	map.keySet().forEach(i -> {
-		if(map.get(i)>0) list.add(i);
-	});
-	String answer ="";
-	for(String i : list) {
-		answer += i;
+	String answer = "";
+	for(String i : map.keySet()) {
+        if(map.get(i) >0)
+		answer +=i;
 	}
         return answer;
     }
