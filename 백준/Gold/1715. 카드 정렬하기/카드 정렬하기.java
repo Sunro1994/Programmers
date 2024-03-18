@@ -1,11 +1,15 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Main {
     static int X;
     static int sum;
     static PriorityQueue<Integer> pq;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
 
         /*
@@ -32,12 +36,12 @@ public class Main {
             }
 
          */
-        Scanner sc = new Scanner(System.in);
-        X = sc.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        X = Integer.parseInt(br.readLine());
         pq = new PriorityQueue();
 
         for (int i = 0; i < X; i++) {
-            pq.offer(sc.nextInt());
+            pq.offer(Integer.parseInt(br.readLine()));
         }
 
         while (pq.size() > 1) {
