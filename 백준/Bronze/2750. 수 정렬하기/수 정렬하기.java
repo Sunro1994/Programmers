@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,6 +11,7 @@ public class Main {
 
         int N = Integer.parseInt(st.nextToken());
         int[] arr = new int[N];
+        int cnt = 0;
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
@@ -17,11 +19,14 @@ public class Main {
         }
 
         for (int i = 0; i < N-1; i++) {
-            for (int x = i+1; x<N; x++) {
-                if(arr[i]>arr[x]) {
-                    swap(i,x,arr);
+            for (int x = 0; x<N-1-i; x++) {
+                if(arr[x]>arr[x+1]) {
+                    swap(x,x+1,arr);
+                    cnt++;
                 }
             }
+                if(cnt==0) break;
+
         }
 
         for (int i = 0; i < N; i++) {
